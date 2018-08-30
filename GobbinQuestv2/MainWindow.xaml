@@ -10,7 +10,7 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"></RowDefinition> <!--gives row as much space as needed-->
             <RowDefinition Height="*"></RowDefinition> <!--gives row as much space as possible-->
-            <RowDefinition Height="225"></RowDefinition> <!--gives row exact measurement-->
+            <RowDefinition Height="155"></RowDefinition> <!--gives row exact measurement-->
         </Grid.RowDefinitions>
 
         <Grid.ColumnDefinitions>
