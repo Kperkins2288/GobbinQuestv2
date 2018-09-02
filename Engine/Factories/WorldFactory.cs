@@ -7,47 +7,63 @@ using Engine.Models;
 
 namespace Engine.Factories
 {
-    internal class WorldFactory
+    internal static class WorldFactory
     {
-        internal World CreateWorld()
+        internal static World CreateWorld()
         {
             World newWorld = new World();
 
             newWorld.AddLocation(-2, -1, "Farmer's Field",
                 "There are rows of corn growing here, with giant rats hiding between them.",
-                "/Engine;component/Images/Locations/FarmFields.png");
+                @"C:\Users\Kim\source\repos\GobbinQuestv2\Engine\Images\Locations\FarmFields.png");
+
+            newWorld.LocationAt(-2, -1).AddMonster(2, 100);
 
             newWorld.AddLocation(-1, -1, "Farmer's House",
                 "This is the house of your neighbor, Farmer Ted.",
-                "/Engine;component/Images/Locations/Farmhouse.png");
+                @"C:\Users\Kim\source\repos\GobbinQuestv2\Engine\Images\Locations\Farmhouse.png");
+            newWorld.LocationAt(-1, -1).TraderHere =
+                TraderFactory.GetTraderByName("Farmer Ted");
+
+            newWorld.LocationAt(-1, -1).QuestsAvailableHere.Add(QuestFactory.GetQuestByID(2));
 
             newWorld.AddLocation(0, -1, "Home",
                 "This is your home",
-                "/Engine;component/Images/Locations/Home.png");
+                @"C:\Users\Kim\source\repos\GobbinQuestv2\Engine\Images\Locations\Home.png");
 
             newWorld.AddLocation(-1, 0, "Trading Shop",
                 "The shop of Gibby, the trader.",
-                "/Engine;component/Images/Locations/Trader.png");
+                @"C:\Users\Kim\source\repos\GobbinQuestv2\Engine\Images\Locations\Trader.png");
+            newWorld.LocationAt(-1, 0).TraderHere =
+                TraderFactory.GetTraderByName("Susan");
 
             newWorld.AddLocation(0, 0, "Town square",
                 "You see a fountain here.",
-                "/Engine;component/Images/Locations/TownSquare.png");
+                @"C:\Users\Kim\source\repos\GobbinQuestv2\Engine\Images\Locations\TownSquare.png");
 
             newWorld.AddLocation(1, 0, "Town Gate",
                 "There is a gate here, protecting the town from giant spiders.",
-                "/Engine;component/Images/Locations/TownGate.png");
+                @"C:\Users\Kim\source\repos\GobbinQuestv2\Engine\Images\Locations\TownGate.png");
 
             newWorld.AddLocation(2, 0, "Spider Forest",
                 "The trees in this forest are covered with spider webs.",
-                "/Engine;component/Images/Locations/SpiderForest.png");
+                @"C:\Users\Kim\source\repos\GobbinQuestv2\Engine\Images\Locations\SpiderForest.png");
+
+            newWorld.LocationAt(2, 0).AddMonster(3, 100);
 
             newWorld.AddLocation(0, 1, "Herbalist's hut",
                 "You see a small hut, with plants drying from the roof.",
-                "/Engine;component/Images/Locations/HerbalistsHut.png");
+                @"C:\Users\Kim\source\repos\GobbinQuestv2\Engine\Images\Locations\HerbalistsHut.png");
+            newWorld.LocationAt(0, 1).TraderHere =
+                TraderFactory.GetTraderByName("Pete the Herbalist");
+
+            newWorld.LocationAt(0, 1).QuestsAvailableHere.Add(QuestFactory.GetQuestByID(1));
 
             newWorld.AddLocation(0, 2, "Herbalist's garden",
                 "There are many plants here, with snakes hiding behind them.",
-                "/Engine;component/Images/Locations/HerbalistsGarden.png");
+                @"C:\Users\Kim\source\repos\GobbinQuestv2\Engine\Images\Locations\HerbalistsGarden.png");
+
+            newWorld.LocationAt(0, 2).AddMonster(1, 100);
 
             return newWorld;
         }
